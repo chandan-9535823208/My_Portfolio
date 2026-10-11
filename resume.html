@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -6,42 +7,305 @@
   <meta name="description" content="View or download Chandan's resume PDF.">
   <meta name="theme-color" content="#0a0d12">
   <title>Resume — Chandan</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    :root{--bg:#0a0d12;--surface:#111721;--text:#f1f5fa;--muted:#9ca8b9;--line:#263140;--accent:#c5fb70;--ink:#11170b}
-    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Manrope,sans-serif;min-height:100vh}
-    .wrap{width:min(1050px,calc(100% - 32px));margin:auto}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:22px 0}
-    .toolbar a,.toolbar button{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:11px;padding:11px 15px;font:700 .8rem Manrope;text-decoration:none;cursor:pointer}
-    .toolbar .download{background:var(--accent);border-color:var(--accent);color:var(--ink)}
-    .intro{padding:26px 0 22px;display:flex;align-items:end;justify-content:space-between;gap:20px}
-    .eyebrow{font: .68rem 'DM Mono',monospace;color:var(--accent);letter-spacing:1.2px;text-transform:uppercase}
-    h1{font-size:clamp(2.1rem,5vw,3rem);line-height:1.05;letter-spacing:-.07em;margin:8px 0}
-    .intro p{color:var(--muted);font-size:.85rem;margin:0}
-    .pdf-frame{height:min(80vh,1050px);min-height:560px;width:100%;border:1px solid var(--line);border-radius:16px;background:#fff;overflow:hidden}
-    .pdf-frame iframe{height:100%;width:100%;border:0;background:white}
-    .fallback{color:var(--muted);font-size:.8rem;margin:12px 0 30px}
-    .fallback a{color:var(--accent)}
-    @media(max-width:560px){.toolbar{align-items:stretch}.toolbar a,.toolbar button{flex:1;text-align:center;padding:10px 8px;font-size:.72rem}.intro{align-items:flex-start;flex-direction:column}.pdf-frame{min-height:65vh;height:70vh}}
+    :root {
+      --bg: #0a0d12;
+      --surface: #111721;
+      --text: #f1f5fa;
+      --muted: #9ca8b9;
+      --line: #263140;
+      --accent: #c5fb70;
+      --ink: #11170b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Manrope, sans-serif;
+      min-height: 100vh;
+    }
+
+    .wrap {
+      width: min(1050px, calc(100% - 32px));
+      margin: auto;
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 22px 0;
+    }
+
+    .toolbar a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--text);
+      border-radius: 11px;
+      padding: 12px 15px;
+      font: 700 0.8rem Manrope, sans-serif;
+      text-decoration: none;
+      text-align: center;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .toolbar a:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+
+    .toolbar .download {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--ink);
+    }
+
+    .intro {
+      padding: 26px 0 22px;
+    }
+
+    .eyebrow {
+      font: 0.68rem 'DM Mono', monospace;
+      color: var(--accent);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 5vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.07em;
+      margin: 8px 0;
+    }
+
+    .intro p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .pdf-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .pdf-heading h2 {
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .pdf-heading span {
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    .pdf-frame {
+      width: 100%;
+      height: min(85vh, 1050px);
+      min-height: 650px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .pdf-frame iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #fff;
+    }
+
+    .mobile-open {
+      display: none;
+      width: 100%;
+      margin-top: 14px;
+      padding: 14px;
+      border: 1px solid var(--accent);
+      border-radius: 12px;
+      background: var(--accent);
+      color: var(--ink);
+      font: 800 0.9rem Manrope, sans-serif;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .fallback {
+      color: var(--muted);
+      font-size: 0.8rem;
+      line-height: 1.7;
+      margin: 14px 0 30px;
+    }
+
+    .fallback a {
+      color: var(--accent);
+    }
+
+    footer {
+      padding: 18px 0 28px;
+      color: var(--muted);
+      font-size: 0.75rem;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .wrap {
+        width: calc(100% - 24px);
+      }
+
+      .toolbar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 9px;
+        padding: 14px 0;
+      }
+
+      .toolbar a {
+        width: 100%;
+        min-height: 44px;
+        padding: 10px 7px;
+        font-size: 0.72rem;
+      }
+
+      .toolbar a:first-child {
+        grid-column: 1 / -1;
+      }
+
+      .intro {
+        padding: 22px 0 18px;
+      }
+
+      h1 {
+        font-size: 2.35rem;
+      }
+
+      .intro p {
+        font-size: 0.82rem;
+      }
+
+      .pdf-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .pdf-frame {
+        height: 78vh;
+        min-height: 500px;
+        border-radius: 10px;
+      }
+
+      .mobile-open {
+        display: block;
+      }
+
+      footer {
+        padding-bottom: 22px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .toolbar a {
+        font-size: 0.67rem;
+      }
+
+      .pdf-frame {
+        height: 72vh;
+        min-height: 450px;
+      }
+    }
   </style>
 </head>
+
 <body>
   <main class="wrap">
-    <div class="toolbar">
+
+    <nav class="toolbar" aria-label="Resume actions">
       <a href="index.html">← Back to portfolio</a>
-      <a class="download" href="Chandan_Resume.pdf" download="Chandan_Resume.pdf">Download resume ↓</a>
-      <a href="Chandan_Resume.pdf" target="_blank" rel="noreferrer">Open PDF ↗</a>
-    </div>
+
+      <a
+        class="download"
+        href="Chandan_Resume.pdf"
+        download="Chandan_Resume.pdf">
+        Download resume ↓
+      </a>
+
+      <a
+        href="Chandan_Resume.pdf"
+        target="_blank"
+        rel="noopener noreferrer">
+        Open PDF ↗
+      </a>
+    </nav>
+
     <header class="intro">
-      <div><span class="eyebrow">CHANDAN / RESUME</span><h1>My resume.</h1><p>View the uploaded PDF here or download it for job and internship applications.</p></div>
+      <span class="eyebrow">CHANDAN / RESUME</span>
+      <h1>My resume.</h1>
+      <p>
+        View my resume or download the PDF for job and internship applications.
+      </p>
     </header>
-    <div class="pdf-frame">
-      <iframe src="Chandan_Resume.pdf#view=FitH" title="Chandan resume PDF">
-        Your browser does not support embedded PDF viewing. Use the Download resume button above.
-      </iframe>
-    </div>
-    <p class="fallback">If the preview does not load in your browser, <a href="Chandan_Resume.pdf" download>download the PDF here</a>.</p>
+
+    <section aria-label="Resume preview">
+      <div class="pdf-heading">
+        <h2>Resume Preview</h2>
+        <span>Use the PDF viewer controls to zoom in or out.</span>
+      </div>
+
+      <div class="pdf-frame">
+        <iframe
+          src="Chandan_Resume.pdf#toolbar=1&navpanes=0&view=FitH"
+          title="Chandan's resume PDF"
+          loading="lazy">
+        </iframe>
+      </div>
+
+      <a
+        class="mobile-open"
+        href="Chandan_Resume.pdf"
+        target="_blank"
+        rel="noopener noreferrer">
+        Open Resume for Zooming ↗
+      </a>
+
+      <p class="fallback">
+        If the preview does not work on your phone, use
+        <a href="Chandan_Resume.pdf" download="Chandan_Resume.pdf">
+          Download Resume
+        </a>
+        or open the PDF separately to zoom in.
+      </p>
+    </section>
+
+    <footer>
+      © 2026 Chandan Kumar · Resume
+    </footer>
+
   </main>
 </body>
 </html>
+```
