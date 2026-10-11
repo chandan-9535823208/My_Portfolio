@@ -8,7 +8,7 @@ A responsive portfolio website built with HTML, CSS and vanilla JavaScript.
 - `script.js` — dark/light theme switch, mobile navigation, project filters, reveal effects and contact email setup
 - `resume.html` — resume viewer page with inline PDF preview and download links
 - `Chandan_Resume.pdf` — your uploaded resume, included as supplied
-- `assets/Chandan.jpg` — your profile photo
+- `Chandan.jpg` — your profile photo
 
 ## Run locally
 Keep the folder structure unchanged and open `index.html` in a modern browser. The contact form opens the visitor's email app; it does not submit to a server.
