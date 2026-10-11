@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View or download Chandan's resume PDF.">
+  <meta name="theme-color" content="#0a0d12">
+  <title>Resume — Chandan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0a0d12;--surface:#111721;--text:#f1f5fa;--muted:#9ca8b9;--line:#263140;--accent:#c5fb70;--ink:#11170b}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Manrope,sans-serif;min-height:100vh}
+    .wrap{width:min(1050px,calc(100% - 32px));margin:auto}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:22px 0}
+    .toolbar a,.toolbar button{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:11px;padding:11px 15px;font:700 .8rem Manrope;text-decoration:none;cursor:pointer}
+    .toolbar .download{background:var(--accent);border-color:var(--accent);color:var(--ink)}
+    .intro{padding:26px 0 22px;display:flex;align-items:end;justify-content:space-between;gap:20px}
+    .eyebrow{font: .68rem 'DM Mono',monospace;color:var(--accent);letter-spacing:1.2px;text-transform:uppercase}
+    h1{font-size:clamp(2.1rem,5vw,3rem);line-height:1.05;letter-spacing:-.07em;margin:8px 0}
+    .intro p{color:var(--muted);font-size:.85rem;margin:0}
+    .pdf-frame{height:min(80vh,1050px);min-height:560px;width:100%;border:1px solid var(--line);border-radius:16px;background:#fff;overflow:hidden}
+    .pdf-frame iframe{height:100%;width:100%;border:0;background:white}
+    .fallback{color:var(--muted);font-size:.8rem;margin:12px 0 30px}
+    .fallback a{color:var(--accent)}
+    @media(max-width:560px){.toolbar{align-items:stretch}.toolbar a,.toolbar button{flex:1;text-align:center;padding:10px 8px;font-size:.72rem}.intro{align-items:flex-start;flex-direction:column}.pdf-frame{min-height:65vh;height:70vh}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="toolbar">
+      <a href="index.html">← Back to portfolio</a>
+      <a class="download" href="Chandan_Resume.pdf" download="Chandan_Resume.pdf">Download resume ↓</a>
+      <a href="Chandan_Resume.pdf" target="_blank" rel="noreferrer">Open PDF ↗</a>
+    </div>
+    <header class="intro">
+      <div><span class="eyebrow">CHANDAN / RESUME</span><h1>My resume.</h1><p>View the uploaded PDF here or download it for job and internship applications.</p></div>
+    </header>
+    <div class="pdf-frame">
+      <iframe src="Chandan_Resume.pdf#view=FitH" title="Chandan resume PDF">
+        Your browser does not support embedded PDF viewing. Use the Download resume button above.
+      </iframe>
+    </div>
+    <p class="fallback">If the preview does not load in your browser, <a href="Chandan_Resume.pdf" download>download the PDF here</a>.</p>
+  </main>
+</body>
+</html>
